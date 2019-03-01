@@ -35,6 +35,8 @@ RUN apk update --no-cache && apk add python3 gnupg libmagic libpq bash shadow cu
 # Setup entrypoint
     chmod 755 /sbin/docker-entrypoint.sh
 
+RUN apk --no-cache --update add tesseract-ocr-data-deu
+
 WORKDIR /usr/src/paperless/src
 # Mount volumes and set Entrypoint
 VOLUME ["/usr/src/paperless/data", "/usr/src/paperless/media", "/consume", "/export"]
